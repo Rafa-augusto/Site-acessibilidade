@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <title>Deficiência visual</title>
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+        }
+        window.onload = loadHeader;  
+    </script>
+</head>
+<body>
+    <body>
+        <div id="header"></div>
+        <h1 class="title" alt="Desafios para deficientes visuais">Deficiência Visual: Superando Barreiras e Promovendo Inclusão</h1>
+        <div class="big_box">
+            <img src="images\blind_man.jpg" class="home_img"><br>
+            <p class="text">
+                A deficiência visual é uma condição que afeta milhões de pessoas ao redor do mundo, impedindo que elas enxerguem ou dificultando significativamente sua visão. Ela pode se manifestar de várias formas, incluindo cegueira total ou parcial, baixa visão, ou doenças que afetam a percepção visual, como glaucoma, catarata ou degeneração macular. Essas condições variam em grau de severidade, mas todas exigem adaptações no ambiente e na sociedade para garantir que as pessoas com deficiência visual possam viver de forma independente e igualitária.            
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Desafios Enfrentados pelas Pessoas com Deficiência Visual
+            </h2>
+            <p class="text">
+                Pessoas com deficiência visual enfrentam uma série de desafios diários que podem dificultar suas atividades cotidianas. Desde tarefas simples, como ler placas e sinais de trânsito, até a interação com tecnologias digitais e o acesso à educação e trabalho, muitas vezes as barreiras são invisíveis para quem não vivencia essas dificuldades.
+
+                Acessibilidade nos espaços públicos: A falta de sinalização adequada, como placas em braille, semáforos sonoros e rampas acessíveis, torna o deslocamento de pessoas com deficiência visual mais complicado.
+                
+                Tecnologia não inclusiva: Embora a tecnologia tenha avançado bastante, muitos sites, aplicativos e dispositivos ainda não são totalmente acessíveis. Isso pode criar dificuldades na navegação da internet, no uso de dispositivos móveis e na interação com softwares de trabalho.
+                
+                Barreiras na educação: A falta de materiais didáticos acessíveis, como livros em braille, audiolivros ou conteúdos digitais com leitores de tela, pode prejudicar o aprendizado e a inclusão de estudantes com deficiência visual.            
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Como a Acessibilidade Pode Fazer a Diferença?
+            </h2>
+            <p class="text">
+                A acessibilidade é a chave para promover uma sociedade mais inclusiva e igualitária para pessoas com deficiência visual. Com a implementação de tecnologias assistivas e adaptações físicas nos ambientes, é possível reduzir significativamente as barreiras que essas pessoas enfrentam.
+
+                Tecnologias assistivas: Ferramentas como leitores de tela, softwares de reconhecimento de voz, ampliadores de tela e dispositivos de braille são essenciais para garantir que pessoas com deficiência visual possam navegar na internet, utilizar aplicativos e acessar conteúdo educacional de forma autônoma.
+                
+                Adaptações no design de sites e aplicativos: Tornar os sites acessíveis significa garantir que todos os elementos de uma página (como textos, imagens e vídeos) possam ser interpretados por leitores de tela. Isso inclui o uso de descrições alternativas (como o texto alternativo "alt" para imagens), títulos claros e uma navegação lógica e simples.
+                
+                Sensibilização e educação: Promover a conscientização sobre a deficiência visual e a importância da acessibilidade é fundamental para reduzir o preconceito e aumentar a inclusão. Além disso, a formação de profissionais da educação e do setor público sobre como lidar com a deficiência visual pode ajudar a garantir que mais pessoas tenham acesso a oportunidades iguais.            
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                A Inclusão Começa com Ações Simples
+            </h2>
+            <p class="text">
+                Cada pequena ação pode fazer uma grande diferença na vida das pessoas com deficiência visual. No ambiente digital, algumas práticas simples, como oferecer legendas em vídeos, garantir que o conteúdo textual esteja acessível para leitores de tela e permitir que os usuários personalizem a experiência do site, podem promover uma inclusão real.
+
+                Além disso, é importante que a sociedade em geral entenda que a deficiência visual não impede as pessoas de realizarem suas atividades. Com o apoio das tecnologias e de um ambiente inclusivo, pessoas com deficiência visual podem trabalhar, estudar, viajar e interagir com o mundo de maneira plena.            
+            </p>
+        </div>
+    </body>
+    </html>
+    <script>
+        function activate_sound() {
+            const texts = document.querySelectorAll('.text')
+            texts.forEach(text => {
+                const textToSpeak = text.textContent;
+                
+                const speaking = new SpeechSynthesisUtterance(textToSpeak);
+                speaking.lang = 'pt-BR'; 
+                speaking.rate = 1; 
+                speaking.pitch = 1;
+                window.speechSynthesis.speak(speaking);
+            })
+        }
+        function font_plus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize + 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize + 2) + 'px';  
+            });
+        }
+
+        function font_minus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize - 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize - 2) + 'px';  
+        });
+        }
+    </script>
+    
+</body>
+</html>

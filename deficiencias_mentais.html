@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <title>deficiencias_mentais</title>
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+        }
+        window.onload = loadHeader;  
+    </script>
+</head>
+<body>
+    <body>
+        <div id="header"></div>
+        <div class="big_box">
+            <img src="images\intelect.jpg" class="home_img"><br>
+            <h2 class="text" style="font-size:30px;">
+                Deficiencia Intelectual: Promovendo Inclusao e Oportunidades
+            </h2>
+            <p class="text">
+                A deficiencia intelectual e uma condição que afeta o desenvolvimento cognitivo de uma pessoa, resultando em limitações na capacidade de aprender, processar informações e resolver problemas. Essa condição pode variar em grau, desde leve até profunda, e pode ter diversas origens, como causas genéticas, problemas durante a gestação ou complicações no parto.
+
+                Pessoas com deficiência intelectual podem enfrentar desafios em áreas como comunicação, habilidades motoras e tomadas de decisão, mas é importante destacar que, com apoio adequado, elas podem desenvolver habilidades, adquirir conhecimento e viver de forma independente ou com o auxílio de cuidadores. O apoio familiar, educacional e social é fundamental para garantir que essas pessoas tenham a oportunidade de se expressar e alcançar seu potencial máximo.
+                
+                A sociedade, no entanto, ainda enfrenta muitos obstáculos em termos de inclusão de pessoas com deficiência intelectual. A falta de acessibilidade em ambientes educativos, de trabalho e até no espaço público é um reflexo da necessidade de maior conscientização e adaptação dos espaços. Para que essas pessoas possam participar plenamente da sociedade, é necessário que haja uma combinação de políticas públicas, tecnologias assistivas e atitudes inclusivas.
+                
+                No entanto, com o avanço da educação inclusiva e da adaptação de tecnologias e ambientes, mais pessoas com deficiência intelectual estão tendo a chance de mostrar suas habilidades e contribuir com suas ideias, sonhos e talentos para a sociedade. O importante é entender que cada pessoa é única e que, com o suporte correto, pode alcançar muito mais do que imaginamos.
+                
+                A inclusão de pessoas com deficiência intelectual não se limita apenas a fornecer assistência, mas também envolve reconhecer suas contribuições, respeitar suas limitações e criar um ambiente onde todos possam aprender, trabalhar e viver com dignidade.
+            </p>
+        </div>
+    </body>
+    </html>
+    <script>
+        function activate_sound() {
+            const texts = document.querySelectorAll('.text')
+            texts.forEach(text => {
+                const textToSpeak = text.textContent;
+                
+                const speaking = new SpeechSynthesisUtterance(textToSpeak);
+                speaking.lang = 'pt-BR'; 
+                speaking.rate = 1; 
+                speaking.pitch = 1;
+                window.speechSynthesis.speak(speaking);
+            })
+        }
+        function font_plus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize + 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize + 2) + 'px';  
+            });
+        }
+
+        function font_minus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize - 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize - 2) + 'px';  
+        });
+        }
+    </script>
+    
+</body>
+</html>

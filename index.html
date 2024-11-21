@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <title>Home</title>
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+        }
+        window.onload = loadHeader;  
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <h1 class="title" alt="Nossa sociedade não está completamente adaptada ainda">Nossa sociedade não está completamente adaptada ainda</h1>
+    <div class="big_box">
+        <img src="images\CONVIVENDO-COM-A-FALTA-DE-ACESSIBILIDADE.jpg" class="home_img"><br>
+        <p class="text">A acessibilidade é fundamental para garantir que todas as pessoas possam participar plenamente da sociedade, independentemente de suas limitações físicas, sensoriais ou cognitivas. Ainda assim, muitas pessoas que necessitam de acessibilidade especial enfrentam desafios diários que passam despercebidos para a maioria.</p>
+        <p class="text">Muitas vezes acessibilidades são implementadas em projetos apenas por questão de normas e acabam ficando mal feitas, se quisérmos uma sociedade mais justa um foco maior na acessibilidade é um passo importante. </p>
+    </div>
+</body>
+</html>
+<script>
+    function activate_sound() {
+        const texts = document.querySelectorAll('.text')
+        texts.forEach(text => {
+            const textToSpeak = text.textContent;
+            
+            const speaking = new SpeechSynthesisUtterance(textToSpeak);
+            speaking.lang = 'pt-BR'; 
+            speaking.rate = 1; 
+            speaking.pitch = 1;
+            window.speechSynthesis.speak(speaking);
+        })
+    }
+    function font_plus() {
+        const titles = document.querySelectorAll('.title');  
+        const texts = document.querySelectorAll('.text');  
+        titles.forEach(title => {  
+            let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+            currentTitleFontSize = parseInt(currentTitleFontSize);  
+            title.style.fontSize = (currentTitleFontSize + 2) + 'px';  
+        });
+        
+        texts.forEach(text => {  
+            let currentTextFontSize = window.getComputedStyle(text).fontSize;
+            currentTextFontSize = parseInt(currentTextFontSize);  
+            text.style.fontSize = (currentTextFontSize + 2) + 'px';  
+        });
+    }
+
+    function font_minus() {
+        const titles = document.querySelectorAll('.title');  
+        const texts = document.querySelectorAll('.text');  
+        titles.forEach(title => {  
+            let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+            currentTitleFontSize = parseInt(currentTitleFontSize);  
+            title.style.fontSize = (currentTitleFontSize - 2) + 'px';  
+        });
+        
+        texts.forEach(text => {  
+            let currentTextFontSize = window.getComputedStyle(text).fontSize;
+            currentTextFontSize = parseInt(currentTextFontSize);  
+            text.style.fontSize = (currentTextFontSize - 2) + 'px';  
+        });
+    }
+</script>

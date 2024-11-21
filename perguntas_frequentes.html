@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <title>Perguntas frequentes</title>
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+        }
+        window.onload = loadHeader;  
+    </script>
+</head>
+<body>
+    <body>
+        <div id="header"></div>
+        <h1 class="title" alt="Perguntas Frequentes">Perguntas Frequentes</h1>
+        <div class="big_box">
+            <img src="images\faq_banner.jpg" class="faq_img"><br>
+            <h2 class="text" style="font-size:30px;">
+                Quem são vocês?
+            </h2>
+            <p class="text">
+                Somos uma equipe de profissionais e voluntários comprometidos com a promoção da acessibilidade digital para todas as pessoas. Nosso site foi criado para informar, educar e ajudar a tornar a web mais inclusiva para todos, especialmente para aqueles com deficiências físicas, sensoriais ou cognitivas.
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Qual é o objetivo deste site?
+            </h2>
+            <p class="text">
+                Nosso principal objetivo é fornecer informações e ferramentas que ajudem a melhorar a acessibilidade de websites e aplicativos. Queremos garantir que a experiência digital seja acessível para todos, sem exceção, e educar os desenvolvedores e empresas sobre como implementar práticas inclusivas.
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Este site é compatível com todas as ferramentas de acessibilidade?
+            </h2>
+            <p class="text">
+                Nos esforçamos para garantir que nosso site seja acessível para a maior variedade possível de ferramentas assistivas. Embora tenhamos testado várias opções, sempre sugerimos que você nos informe caso encontre algum problema de acessibilidade, para que possamos corrigir rapidamente.            
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Posso ajudar de alguma forma?
+            </h2>
+            <p class="text">
+                Sim! Se você é um desenvolvedor, designer ou entusiasta da acessibilidade, pode contribuir com sugestões, feedbacks ou até mesmo ajudar a traduzir ou adaptar conteúdo para garantir que mais pessoas se beneficiem das informações. Caso tenha uma experiência relevante, ficaremos felizes em compartilhar seus conhecimentos no nosso site!            
+            </p>
+            <h2 class="text" style="font-size:30px;">
+                Onde posso aprender mais sobre acessibilidade digital?
+            </h2>
+            <p class="text">
+                Existem muitos recursos e cursos online gratuitos sobre acessibilidade digital. Sites como o W3C, Deque University e Google Developers oferecem materiais educativos. Você também pode explorar blogs e artigos sobre acessibilidade para se manter atualizado sobre as melhores práticas e novas ferramentas.            
+            </p>
+        </div>
+    </body>
+    </html>
+    <script>
+        function activate_sound() {
+            const texts = document.querySelectorAll('.text')
+            texts.forEach(text => {
+                const textToSpeak = text.textContent;
+                
+                const speaking = new SpeechSynthesisUtterance(textToSpeak);
+                speaking.lang = 'pt-BR'; 
+                speaking.rate = 1; 
+                speaking.pitch = 1;
+                window.speechSynthesis.speak(speaking);
+            })
+        }
+
+        function font_plus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize + 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize + 2) + 'px';  
+            });
+        }
+
+        function font_minus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize - 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize - 2) + 'px';  
+        });
+        }
+    </script>
+    
+</body>
+</html>

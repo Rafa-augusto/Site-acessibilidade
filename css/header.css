@@ -1,0 +1,45 @@
+body {
+    margin: 0px;
+}
+.header_box {
+    display: flex;
+    background-color: gray;
+    height: 70px;
+    align-items: center;
+}
+.acessibility_button {
+    height: 35px;
+    width: 35px;
+    
+}
+.acessibility_button:hover {
+    cursor: pointer;
+}
+.acessibility_button:active {
+    height: 30px;
+    width: 30px;
+}
+.header_buttons {
+    display: flex;
+    align-items: center;
+    max-width: 105px;
+    margin-left: 40px;
+    gap: 20px;
+}
+.pages_container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1000px;
+    margin-left: 415px;
+    gap: 20px;
+}
+.pages {
+    
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif
+}

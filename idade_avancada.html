@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <title>idade_avancada</title>
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+        }
+        window.onload = loadHeader;  
+    </script>
+</head>
+<body>
+    <body>
+        <div id="header"></div>
+        <h1 class="title" alt="Nossa sociedade não está completamente adaptada ainda">Nossa sociedade não está completamente adaptada ainda</h1>
+        <div class="big_box">
+            <img src="images\elderly_guy.jpg" class="home_img"><br>
+            <h2 class="text" style="font-size:30px;">
+                Idade Avançada: Desafios e Oportunidades para a Inclusão dos Idosos
+            </h2>
+            <p class="text">
+                A idade avançada é uma fase da vida que traz consigo uma série de desafios, mas também oferece muitas oportunidades para crescimento, aprendizado e realização. À medida que envelhecemos, experimentamos mudanças físicas, cognitivas e emocionais que podem afetar nossa capacidade de realizar atividades cotidianas, mas com o suporte adequado, é possível continuar vivendo de maneira plena e ativa.
+
+                Muitos idosos enfrentam barreiras no acesso a serviços de saúde, transporte e lazer, além de dificuldades em se manterem conectados socialmente. A solidão, por exemplo, é um dos maiores problemas enfrentados pela população idosa, pois muitos acabam se isolando à medida que envelhecem. Isso pode impactar sua saúde mental e emocional, levando a quadros de depressão e ansiedade.
+                
+                Além disso, a deficiência física, como a perda de mobilidade ou a diminuição da visão e audição, pode tornar o envelhecimento mais desafiador. No entanto, muitas dessas condições podem ser tratadas ou minimizadas com o auxílio de tecnologias assistivas, terapias adequadas e mudanças no estilo de vida.
+                
+                É importante ressaltar que os idosos têm um valor imensurável para a sociedade. Sua experiência de vida, sabedoria e contribuições são inestimáveis e podem ser aplicadas de muitas formas. Com a evolução da medicina e da tecnologia, hoje em dia, os idosos podem manter um estilo de vida mais saudável e ativo do que nunca. Muitas comunidades oferecem programas de apoio, atividades recreativas e oportunidades para a educação continuada, o que permite que os idosos participem mais ativamente da vida social e se sintam valorizados.
+                
+                A inclusão dos idosos na sociedade requer um esforço coletivo para adaptar espaços, serviços e atitudes. O envelhecimento da população mundial torna a criação de uma sociedade mais inclusiva e acessível para os idosos uma prioridade cada vez maior. Melhorar o acesso a cuidados médicos, promover a mobilidade, e desenvolver iniciativas para combater a solidão são passos essenciais para garantir que os idosos possam viver com qualidade de vida.
+                
+                Em resumo, a idade avançada não precisa ser vista apenas como um período de limitações, mas como uma fase rica em experiências e oportunidades. O respeito, a dignidade e o apoio a essa parcela da população são fundamentais para construir uma sociedade mais justa e igualitária para todos.            
+            </p>
+        </div>
+    </body>
+    </html>
+    <script>
+        function activate_sound() {
+            const texts = document.querySelectorAll('.text')
+            texts.forEach(text => {
+                const textToSpeak = text.textContent;
+                
+                const speaking = new SpeechSynthesisUtterance(textToSpeak);
+                speaking.lang = 'pt-BR'; 
+                speaking.rate = 1; 
+                speaking.pitch = 1;
+                window.speechSynthesis.speak(speaking);
+            })
+        }
+        function font_plus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize + 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize + 2) + 'px';  
+            });
+        }
+
+        function font_minus() {
+            const titles = document.querySelectorAll('.title');  
+            const texts = document.querySelectorAll('.text');  
+            titles.forEach(title => {  
+                let currentTitleFontSize = window.getComputedStyle(title).fontSize;
+                currentTitleFontSize = parseInt(currentTitleFontSize);  
+                title.style.fontSize = (currentTitleFontSize - 2) + 'px';  
+            });
+            
+            texts.forEach(text => {  
+                let currentTextFontSize = window.getComputedStyle(text).fontSize;
+                currentTextFontSize = parseInt(currentTextFontSize);  
+                text.style.fontSize = (currentTextFontSize - 2) + 'px';  
+        });
+        }
+    </script>
+    
+</body>
+</html>
